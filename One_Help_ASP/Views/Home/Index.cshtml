@@ -1,0 +1,7 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Accueil";
+}
+<center>
+    <h1 style="margin-top:15%;">Bienvenue  </h1><h2>@Context.Session.GetString("email").Split('@')[0].ToUpper() ! </h2>
+</center>

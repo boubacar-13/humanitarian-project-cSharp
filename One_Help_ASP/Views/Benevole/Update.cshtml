@@ -1,0 +1,101 @@
+﻿@model One_Help_ASP.Models.Benevole
+@{
+    ViewData["Title"] = "Update";
+}
+
+<form method="post" asp-action="Update">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Modifier le Bénévole</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Nom"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Prenom"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="CodePostal"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Nom" class="form-control" />
+                        <span asp-validation-for=" Nom" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Prenom" class="form-control" />
+                        <span asp-validation-for="Prenom" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="CodePostal" class="form-control" />
+                        <span asp-validation-for=" CodePostal" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="NumeroTel"></label>
+
+            </div>
+            <div class="col-4">
+                <label asp-for="Email"></label>
+            </div>
+            <div class="col-4">
+                <label asp-for="Mdp"></label>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <input asp-for="NumeroTel" class="form-control" />
+                <span asp-validation-for="NumeroTel" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="col-4">
+                <input asp-for="Mdp" class="form-control" />
+            </div>
+
+        </div>
+
+        <div class="form-group row" style="display: flex; justify-content: center;">
+            <div class="">
+                <input type="radio" id="statut1" name="statut" value="email">
+                <label for="statut1" style="color: green; font-weight:bold">Activé.e</label></br>
+
+                <input type="radio" id="statut2" name="statut" value="telephone">
+                <label for="statut2" style="color: red; font-weight: bold">Désactivé.e</label>
+            </div>
+        </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row ">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Mettre à jour" />
+                        </div>
+                        <div class="col">
+                            <a asp-controller="Benevole" asp-action="Index" class="btn btn-danger w-75">Retour</a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

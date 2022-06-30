@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Association</h1>
+
+
+
+       <a class="btn btn-primary" asp-controller="Association" asp-action="Create" style="margin-bottom:15px;">Ajouter une Association</a>
+
+        <table class="table caption-top table-bordered table-striped">
+            <caption>Liste des Benevoles</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NomAsso</th>
+                    <th scope="col">Nom Rep Legal</th>
+                    <th scope="col">Adress</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.NomAsso</td>
+                        <td>@item.NomRepLegal</td>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Association" asp-action="Update" asp-route-Id="@item.Id" class="btn btn-success mx-1 ">Editer</a>
+                                <a asp-controller="Association" asp-action="Detail" asp-route-Id="@item.Id" class="btn btn-warning mx-1">Détails</a>
+                                @if (Context.Session.GetString("email") == "albert@gmail.com"){
+                                <a asp-controller="Association" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger mx-1">Supprimer</a>
+                                }
+                            </div>
+                         </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    
+

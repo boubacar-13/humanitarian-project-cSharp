@@ -1,0 +1,47 @@
+﻿@model One_Help_ASP.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+<center>
+    <h1>Connexion</h1>
+</center>
+    @{ try
+        {
+            if (TempData["msg"] != null)
+            {
+                <script>swal("Accès Refusé !", "Email ou mot de passe incorrect!", "error");</script>
+            }
+        }
+        catch
+        {
+        }
+    }
+    <center>
+        <h4>Administrateur.trice</h4> <hr />
+    </center>
+
+    <div class="row" style="display:flex;justify-content: center;">
+        <div class="col-md-4">
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" style="display:flex;justify-content: center;">
+                    <input type="submit" value="Connexion" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+

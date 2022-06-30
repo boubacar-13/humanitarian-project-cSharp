@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Http
+
+
+@model List<One_Help_ASP.Models.Benevole>
+@{
+    ViewData["Title"] = "Benevole";
+
+}
+<h1>Liste des Bénévoles</h1>
+
+
+
+       <a class="btn btn-primary" asp-controller="Benevole" asp-action="Create" style="margin-bottom:15px;">Ajouter un Bénévole</a>
+
+        <table class="table caption-top table-bordered table-striped">
+            <caption>Liste des Bénévoles</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Nom</td>
+                        <td>@item.Prenom</td>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Benevole" asp-action="Update" asp-route-Id="@item.Id" class="btn btn-success mx-1 ">Editer</a>
+                                <a asp-controller="Benevole" asp-action="Detail" asp-route-Id="@item.Id" class="btn btn-warning mx-1">Détails</a>
+                                @if (Context.Session.GetString("email") == "albert@gmail.com"){
+                                <a asp-controller="Benevole" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger mx-1">Supprimer</a>
+                                }
+                            </div>
+                         </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    

@@ -1,0 +1,84 @@
+﻿@model One_Help_ASP.Models.Benevole
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<form method="post" asp-action="DeletePost">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Suppression du Bénévole</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Nom"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Prenom"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="CodePostal"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Nom" disabled class="form-control" />
+                      
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Prenom" disabled class="form-control" />
+
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="CodePostal" disabled class="form-control" />
+                 
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="NumeroTel"></label>
+
+            </div>
+            <div class="col-4">
+                <label asp-for="Email"></label>
+            </div>
+            <div class="col-4">
+                <label asp-for="Mdp"></label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <input asp-for="NumeroTel" disabled class="form-control" />
+               
+            </div>
+            <div class="col-4">
+                <input asp-for="Email" disabled class="form-control" />
+            </div>
+            <div class="col-4">
+                <input asp-for="Mdp" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-8 offset-2 row ">
+                <div class="col">
+                    <input type="submit" class="btn btn-danger w-75" value="Delete" />
+                </div>
+                <div class="col">
+                    <a asp-controller="Benevole" asp-action="Index" class="btn btn-success w-75">Back</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</form>
+
